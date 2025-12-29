@@ -1,0 +1,104 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+header { background: #0ea5e9; color: white; position: sticky; top: 0; z-index: 20; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+nav a { color: white; margin-left: 1rem; text-decoration: none; }
+
+.container { max-width: 1000px; margin: auto; padding: 1.5rem; }
+
+.hero {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.btn {
+  background: #2563eb;
+  color: white;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 18px rgba(0,0,0,.1); }
+
+.card-section h2 { margin-bottom: .5rem; }
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0,0,0,.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 32px rgba(0,0,0,.08); }
+
+.form input, .form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.45rem 0;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+.status { margin-top: .7rem; font-weight: bold; }
+
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+/* ---------------- Animations ---------------- */
+
+/* initial hidden state for scroll reveals */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger delays */
+.delay1 { transition-delay: .1s; }
+.delay2 { transition-delay: .2s; }
+.delay3 { transition-delay: .3s; }
+.delay4 { transition-delay: .4s; }
+
+/* fade-in for header/footer */
+.fade-in { animation: fade .7s ease forwards; }
+.fade-in-up { animation: fadeUp 1s ease forwards; }
+
+@keyframes fade { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+/* button fun animations */
+.pulse { animation: pulse 2.2s infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,99,235,.4); }
+  70% { box-shadow: 0 0 0 14px rgba(37,99,235,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+}
+
+.wave:hover { animation: wave .6s ease; }
+@keyframes wave {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
